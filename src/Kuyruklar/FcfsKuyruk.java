@@ -9,14 +9,17 @@ public class FcfsKuyruk extends Kuyruk {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	@Override
 	public ProcessItem GetProcess(int kontrolSaniye)
 	{			
 		ArrayList<ProcessItem> clone =new ArrayList<>();
 		clone.addAll(processListesi);						
 
+		//clone process arrayi icerisindeki processleri siralar.  
 		clone.sort(ProcessItem.getKucukten());
 		
+		//sirasi gelen processi return eder. 
 		for(int i=0;i<clone.size();i++)
 		{
 			ProcessItem process=clone.get(i);
@@ -27,6 +30,7 @@ public class FcfsKuyruk extends Kuyruk {
 		return null;
 	}
 
+	//process islenmesini simule eder. 
 	@Override
 	public void Isle(ProcessItem pp) {
 		pp.ProcessIsle();		
