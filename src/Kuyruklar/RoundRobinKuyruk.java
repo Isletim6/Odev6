@@ -1,5 +1,7 @@
 package Kuyruklar;
 
+import java.util.ArrayList;
+
 public class RoundRobinKuyruk extends Kuyruk {
 
 	ArrayList<ProcessItem> TurCalisanlari;
