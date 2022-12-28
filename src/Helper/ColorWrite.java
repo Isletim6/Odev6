@@ -2,8 +2,10 @@ package Helper;
 
 import Kuyruklar.ProcessItem;
 
+/// Console Renkli yazı yazmak için işlem yapan sınıftır
 public final class ColorWrite {
 
+	/// Sistemde Renkli yazmak için atanması gereken değerledir
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_RED = "\u001B[31m";
@@ -15,6 +17,8 @@ public final class ColorWrite {
 	public static final String ANSI_WHITE = "\u001B[37m";
 
 	public static void Write(Renkler r, String mesaj) {
+			
+		//istenen Renke göre çıktı renk değişim yapılmaktadır.
 		switch (r) {
 		case Kirmizi:
 			System.out.print(ANSI_RED);
@@ -38,7 +42,9 @@ public final class ColorWrite {
 			System.out.print(ANSI_BLACK);
 			break;
 		}
+		
 		System.out.print(mesaj);
+		//Mesaj Yazım Sonrası Eski duruma dönüş yapılmaktadır.
 		System.out.println(ANSI_RESET);
 	}
 
