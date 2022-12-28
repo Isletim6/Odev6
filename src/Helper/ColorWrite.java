@@ -47,7 +47,7 @@ public final class ColorWrite {
 		//Mesaj Yazım Sonrası Eski duruma dönüş yapılmaktadır.
 		System.out.println(ANSI_RESET);
 	}
-
+	// Process hakkında bilgi yazar.
 	public static void WriteProcess(ProcessItem process, int saniye, String islemAdi) {
 		var messageText = String.format("%d sn process %s %s", saniye, islemAdi, process.Mesaj());
 		Write(process.getRenk(), messageText);
