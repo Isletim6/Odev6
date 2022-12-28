@@ -29,12 +29,12 @@ public class RoundRobinKuyruk extends Kuyruk {
 	// Process liste kontrol, sıralama ve process zamana göre devam etme.
 	public ProcessItem GetProcess(int kontrolSaniye)
 	{	
-		//yeni nesne oluşturduk ve tüm öğeleri ekledik.
+		//yeni nesne oluşturduk ve tüm öğeleri ekledik. Sıralamadan sonra ana listesinin bozulmaması için klon oluşturdum.
 		ArrayList<ProcessItem> clone = new ArrayList<ProcessItem>();
 		clone.addAll(processListesi);
 		// Zamanı gelmiş processleri calisabilecek processlere aktardık.
 		var calisabilecekProcessler = zamaniGelmisProcessler(kontrolSaniye);
-		// Eğer oluşturulmuşsa listeyi temizliyoruz.
+		// Tüm zamanı gelmiş processler çalıştıysa listeyi temizlip baştan alıyoruz.
 		if (HepsiCalisti(calisabilecekProcessler))
 		   TurCalisanlari.clear();
 		// Listeyi sıraladık.
@@ -44,7 +44,7 @@ public class RoundRobinKuyruk extends Kuyruk {
 			ProcessItem process = clone.get(i);
 			if (process.kalanSure == 0 || process.gelisSuresi > kontrolSaniye)
 			    continue;
-		// TurCalisanlari listesinde process kontrol ediyoruz bu listedeyse devam ediyoruz.
+		// Çalışan processlerin tekrar çalışmaması için kontrol ediyoruz.
 			if (TurCalisanlari.contains(process))
 			    continue;
 
@@ -53,7 +53,7 @@ public class RoundRobinKuyruk extends Kuyruk {
 		return null;
 	}
 
-	//  Listedeki herbir processin Turcalisanları dizisinde bulunup (true) bulunmadığına(false) bakıyoruz
+	//  Bu turda çalışması gereken processlerin çalışıp çalışmadığını kontrol eder.
 	boolean HepsiCalisti(ArrayList<ProcessItem> calisabilecekProcessler) {
 		// döngü ile herbirini kontrol ediyoruz. Bulunmuyorsa false.
 		for (ProcessItem pp : calisabilecekProcessler) {
@@ -65,7 +65,7 @@ public class RoundRobinKuyruk extends Kuyruk {
 	}
 
 
-	// Processs'in kalan zamanı 0 dan büyük varsa TurCalisanlari na ekler.
+	// Processs'in kalan zamanı 0 dan büyük varsa TurCalisanlari na ekler.(işlemi bitn processi listeye ekler.)
 	@Override
 	public void Isle(ProcessItem pp) {				
 		pp.ProcessIsle();
