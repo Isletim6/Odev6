@@ -11,6 +11,7 @@ B211210506 Salim Demiray   1. Öğretim C Grubu, (Genel proje oluşumu ve kontro
 
 B211210413 Ümit Can KABA 2. Öğretim C grubu, (Dosya okuma)
 
+![image](https://user-images.githubusercontent.com/58032459/211195354-31a232ba-95b7-42f4-b1c9-a7f32c79396e.png)
 
 Ödev Amacı:
 • Görevlendirici tarafından kullanılan yapıların tanımı ve tartışılması-10 puan (rapor)
